@@ -1,0 +1,21 @@
+# Product images uploaded by the admin. Nothing in this folder may run as code.
+Options -Indexes
+
+# Refuse to serve script files, even if one were uploaded under a misleading name
+<FilesMatch "\.(php\d?|phtml|phar|phps|cgi|pl|py|sh|asp|aspx|jsp)$">
+    Require all denied
+</FilesMatch>
+
+# If mod_php is loaded, switch the PHP engine off for this folder as well
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+    php_flag engine off
+</IfModule>
+<IfModule php_module>
+    php_flag engine off
+</IfModule>
